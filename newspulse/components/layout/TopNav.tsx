@@ -8,7 +8,7 @@ export function TopNav() {
       <div className="max-w-6xl mx-auto h-16 px-5 flex items-center justify-between">
         <button onClick={() => window.location.reload()} className="-ml-20 mt-2">
           <Image
-            src="/logo.png"
+            src="/LogoMax.png"
             alt="NewsPulse"
             width={300}
             height={300}
