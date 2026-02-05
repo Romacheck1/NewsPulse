@@ -180,7 +180,6 @@ Your project is configured with the following settings:
 ```typescript
 {
   reactStrictMode: true,
-  swcMinify: true,
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -192,6 +191,8 @@ Your project is configured with the following settings:
   },
 }
 ```
+
+**Note:** `swcMinify` is not included because SWC minification is enabled by default in Next.js 16 and cannot be disabled.
 
 ### Vercel Build Settings
 
@@ -267,7 +268,7 @@ If you need to override settings:
 
 Your `next.config.ts` includes:
 - ✅ React Strict Mode (development warnings)
-- ✅ SWC Minification (faster builds)
+- ✅ SWC Minification (enabled by default in Next.js 16)
 - ✅ Image optimization (AVIF/WebP formats)
 - ✅ Remote image patterns configured
 
@@ -330,6 +331,13 @@ npm run lint
 rm -rf node_modules package-lock.json
 npm install
 ```
+
+**Issue:** `Invalid next.config.ts options detected: Unrecognized key(s) in object: 'swcMinify'`
+
+**Solution:**
+- Remove `swcMinify` from `next.config.ts` - it's not valid in Next.js 16
+- SWC minification is enabled by default and cannot be disabled
+- This has been fixed in the current configuration
 
 ### Deployment Issues
 
