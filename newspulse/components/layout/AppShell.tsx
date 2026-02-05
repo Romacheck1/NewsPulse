@@ -8,7 +8,7 @@ interface AppShellProps {
 
 export function AppShell({ children }: AppShellProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100">
+    <div className="min-h-screen flex flex-col bg-[var(--color-light-purple)] text-slate-100">
       <TopNav />
       <main className="flex-1">{children}</main>
       <Footer />
