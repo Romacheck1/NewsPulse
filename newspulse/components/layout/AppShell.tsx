@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import { TopNav } from "./TopNav";
 import { Footer } from "./Footer";
+import { NewsProvider } from "../../contexts/NewsContext";
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -8,11 +11,13 @@ interface AppShellProps {
 
 export function AppShell({ children }: AppShellProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--color-light-purple)] text-slate-100">
-      <TopNav />
-      <main className="flex-1">{children}</main>
-      <Footer />
-    </div>
+    <NewsProvider>
+      <div className="min-h-screen flex flex-col bg-[var(--color-light-purple)] text-gray-900">
+        <TopNav />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </div>
+    </NewsProvider>
   );
 }
 

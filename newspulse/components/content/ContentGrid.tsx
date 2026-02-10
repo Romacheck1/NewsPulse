@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { TopStoriesPanel } from "./TopStoriesPanel";
 import { LatestArticlesPanel } from "./LatestArticlesPanel";
@@ -12,4 +14,3 @@ export function ContentGrid() {
     </div>
   );
 }
-

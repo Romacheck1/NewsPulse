@@ -24,7 +24,7 @@ export function TopNav() {
           <a href="/about" className="text-sm font-medium text-[var(--color-purple-pain)] hover:underline">
             About
           </a>
-          <button className="h-9 px-4 rounded-full bg-[var(--color-purple-pain)] text-white text-sm font-medium hover:opacity-90">
+          <button className="h-9 px-4 rounded-full bg-[var(--color-purple-pain)] text-black text-sm font-semibold hover:opacity-90">
             Login
           </button>
         </div>

@@ -1,14 +1,71 @@
 import React from "react";
 import { Card } from "../ui/Card";
+import { Article } from "../../lib/types";
+import Image from "next/image";
 
-export function FeaturedStoryCard() {
+interface FeaturedStoryCardProps {
+  article: Article;
+  onSave?: (article: Article) => void;
+}
+
+export function FeaturedStoryCard({ article, onSave }: FeaturedStoryCardProps) {
+  const formatDate = (dateString?: string) => {
+    if (!dateString) return "Date unknown";
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      });
+    } catch {
+      return "Date unknown";
+    }
+  };
+
   return (
     <Card>
-      <div className="h-48 bg-gray-200 rounded mb-4"></div>
-      <h3 className="text-lg font-semibold mb-2">Featured Story Title</h3>
-      <p className="text-sm text-gray-600 mb-2">Source Name</p>
-      <p className="text-sm text-gray-500">Published date</p>
+      {article.imageUrl && (
+        <div className="relative h-48 w-full rounded mb-4 overflow-hidden">
+          <Image
+            src={article.imageUrl}
+            alt={article.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+      )}
+      {!article.imageUrl && (
+        <div className="h-48 bg-gray-200 rounded mb-4"></div>
+      )}
+      <h3 className="text-lg font-semibold mb-2">
+        {article.url ? (
+          <a
+            href={article.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--color-bright-purple)] transition-colors"
+          >
+            {article.title}
+          </a>
+        ) : (
+          article.title
+        )}
+      </h3>
+      <p className="text-sm text-gray-600 mb-2">{article.source || "Unknown source"}</p>
+      <div className="flex items-center justify-between">
+        <p className="text-sm text-gray-500">{formatDate(article.publishedAt)}</p>
+        {onSave && (
+          <button
+            onClick={() => onSave(article)}
+            className="text-[var(--color-bright-purple)] hover:opacity-80 text-sm px-2 py-1"
+            aria-label="Save article"
+          >
+            Save
+          </button>
+        )}
+      </div>
     </Card>
   );
 }
-

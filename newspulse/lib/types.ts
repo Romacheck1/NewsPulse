@@ -5,5 +5,9 @@ export type Article = {
   url?: string;
   imageUrl?: string;
   publishedAt?: string;
+  category?: string;
+  description?: string;
 };
+
+export type Category = "All" | "Technology" | "Business" | "Science" | "Health" | "Sports";
 

@@ -1,14 +1,13 @@
 import { HeroSection } from "../components/hero/HeroSection";
-// import { ContentGrid } from "../components/content/ContentGrid";
-// import { SavedSection } from "../components/saved/SavedSection";
+import { ContentGrid } from "../components/content/ContentGrid";
+import { SavedSection } from "../components/saved/SavedSection";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      {/* Temporarily hidden - uncomment when ready */}
-      {/* <ContentGrid /> */}
-      {/* <SavedSection /> */}
+      <ContentGrid />
+      <SavedSection />
     </>
   );
 }

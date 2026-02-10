@@ -10,7 +10,7 @@ export function HeroSection() {
     <section
       className="pt-20 pb-0 relative"
       style={{
-        background: `linear-gradient(to right, var(--color-bright-purple), var(--color-medium-purple))`,
+        background: `linear-gradient(to right, var(--color-freeze-purple), var(--color-light-purple))`,
       }}
     >
       <div className="max-w-6xl mx-auto px-4">

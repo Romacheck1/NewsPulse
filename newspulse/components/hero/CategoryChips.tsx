@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { CategoryChip } from "./CategoryChip";
+import { useNews } from "../../contexts/NewsContext";
+import { Category } from "../../lib/types";
 
 export function CategoryChips() {
-  const categories = [
+  const categories: Category[] = [
     "All",
     "Technology",
     "Business",
@@ -13,17 +14,17 @@ export function CategoryChips() {
     "Sports",
   ];
 
-  const [activeCategory, setActiveCategory] = useState("All");
+  const { category, setCategory } = useNews();
 
   return (
-    <div className="w-full overflow-x-auto bg-[var(--color-bright-purple)] px-4 py-2 -mt-px">
+    <div className="w-full overflow-x-auto bg-[var(--color-light-purple)] px-4 py-2 -mt-px">
       <div className="max-w-6xl mx-auto flex justify-center gap-2 whitespace-nowrap">
-        {categories.map((category) => (
+        {categories.map((cat) => (
           <CategoryChip
-            key={category}
-            label={category}
-            active={category === activeCategory}
-            onClick={() => setActiveCategory(category)}
+            key={cat}
+            label={cat}
+            active={cat === category}
+            onClick={() => setCategory(cat)}
           />
         ))}
       </div>
