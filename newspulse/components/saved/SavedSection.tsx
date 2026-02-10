@@ -4,13 +4,20 @@ import React from "react";
 import { SavedHeader } from "./SavedHeader";
 import { SavedArticleCard } from "../articles/SavedArticleCard";
 import { useSavedArticles } from "../../hooks/useSavedArticles";
+import { useToastContext } from "../../contexts/ToastContext";
 import { Skeleton } from "../ui/Skeleton";
 
 export function SavedSection() {
   const { savedArticles, loading, deleteArticle } = useSavedArticles();
+  const { showToast } = useToastContext();
 
   const handleDelete = async (id: string) => {
-    await deleteArticle(id);
+    const success = await deleteArticle(id);
+    if (success) {
+      showToast("Article deleted successfully!", "success");
+    } else {
+      showToast("Failed to delete article", "error");
+    }
   };
 
   if (loading && savedArticles.length === 0) {
@@ -32,14 +39,33 @@ export function SavedSection() {
     );
   }
 
-  if (savedArticles.length === 0) {
+  if (savedArticles.length === 0 && !loading) {
     return (
       <section className="py-6">
         <div className="max-w-6xl mx-auto px-4">
           <SavedHeader />
-          <p className="text-gray-500 text-center py-8">
-            No saved articles yet. Save articles to view them here.
-          </p>
+          <div className="text-center py-12">
+            <div className="inline-block p-4 bg-gray-100 rounded-full mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-12 w-12 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                />
+              </svg>
+            </div>
+            <p className="text-gray-600 text-lg font-medium mb-2">No saved articles yet</p>
+            <p className="text-gray-500 text-sm">
+              Click the "Save" button on any article to save it for later reading.
+            </p>
+          </div>
         </div>
       </section>
     );

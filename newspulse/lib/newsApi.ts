@@ -7,7 +7,7 @@ const mockArticles: Article[] = [
     title: "Revolutionary AI Breakthrough Transforms Healthcare",
     source: "Tech News Daily",
     url: "https://example.com/news/1",
-    imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800",
+    imageUrl: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800",
     publishedAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
     category: "Technology",
     description: "Scientists develop AI system that can diagnose diseases with 99% accuracy."
@@ -27,7 +27,7 @@ const mockArticles: Article[] = [
     title: "New Exoplanet Discovered in Habitable Zone",
     source: "Space Today",
     url: "https://example.com/news/3",
-    imageUrl: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800",
+    imageUrl: "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800",
     publishedAt: new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString(),
     category: "Science",
     description: "Astronomers find Earth-like planet that could potentially support life."
@@ -37,7 +37,7 @@ const mockArticles: Article[] = [
     title: "Breakthrough in Cancer Treatment Shows Promise",
     source: "Health Journal",
     url: "https://example.com/news/4",
-    imageUrl: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800",
+    imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800",
     publishedAt: new Date(Date.now() - 8 * 60 * 60 * 1000).toISOString(),
     category: "Health",
     description: "New immunotherapy treatment shows 80% success rate in clinical trials."
@@ -57,7 +57,7 @@ const mockArticles: Article[] = [
     title: "Quantum Computing Milestone Achieved",
     source: "Tech News Daily",
     url: "https://example.com/news/6",
-    imageUrl: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800",
+    imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
     publishedAt: new Date(Date.now() - 12 * 60 * 60 * 1000).toISOString(),
     category: "Technology",
     description: "Researchers achieve quantum supremacy with new 1000-qubit processor."
@@ -77,7 +77,7 @@ const mockArticles: Article[] = [
     title: "Climate Change Research Reveals New Insights",
     source: "Science Today",
     url: "https://example.com/news/8",
-    imageUrl: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800",
+    imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800",
     publishedAt: new Date(Date.now() - 16 * 60 * 60 * 1000).toISOString(),
     category: "Science",
     description: "Latest climate models show accelerated warming patterns in polar regions."
@@ -87,7 +87,7 @@ const mockArticles: Article[] = [
     title: "Mental Health Awareness Campaign Launches",
     source: "Health Journal",
     url: "https://example.com/news/9",
-    imageUrl: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800",
+    imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800",
     publishedAt: new Date(Date.now() - 18 * 60 * 60 * 1000).toISOString(),
     category: "Health",
     description: "New initiative aims to reduce stigma around mental health issues."
@@ -107,7 +107,7 @@ const mockArticles: Article[] = [
     title: "5G Networks Expand to Rural Areas",
     source: "Tech News Daily",
     url: "https://example.com/news/11",
-    imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800",
+    imageUrl: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800",
     publishedAt: new Date(Date.now() - 22 * 60 * 60 * 1000).toISOString(),
     category: "Technology",
     description: "Telecom companies invest billions to bring high-speed internet to remote regions."

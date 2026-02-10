@@ -5,17 +5,24 @@ import { SectionHeader } from "../ui/SectionHeader";
 import { FeaturedStoryCard } from "../articles/FeaturedStoryCard";
 import { useNews } from "../../contexts/NewsContext";
 import { useSavedArticles } from "../../hooks/useSavedArticles";
+import { useToastContext } from "../../contexts/ToastContext";
 import { Skeleton } from "../ui/Skeleton";
 
 export function TopStoriesPanel() {
-  const { articles, loading } = useNews();
+  const { articles, loading, error } = useNews();
   const { saveArticle } = useSavedArticles();
+  const { showToast } = useToastContext();
 
   // Get top 3 stories (featured stories)
   const topStories = articles.slice(0, 3);
 
   const handleSave = async (article: typeof articles[0]) => {
-    await saveArticle(article);
+    const success = await saveArticle(article);
+    if (success) {
+      showToast("Article saved successfully!", "success");
+    } else {
+      showToast("Article already saved or failed to save", "error");
+    }
   };
 
   if (loading && articles.length === 0) {
@@ -35,11 +42,26 @@ export function TopStoriesPanel() {
     );
   }
 
-  if (topStories.length === 0) {
+  if (error) {
     return (
       <div>
         <SectionHeader title="Top Stories" />
-        <p className="text-gray-500 text-sm">No stories available</p>
+        <div className="text-center py-8">
+          <p className="text-red-500 text-sm mb-2">Error loading stories</p>
+          <p className="text-gray-400 text-xs">{error}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (topStories.length === 0 && !loading) {
+    return (
+      <div>
+        <SectionHeader title="Top Stories" />
+        <div className="text-center py-8">
+          <p className="text-gray-500 text-sm mb-2">No stories available</p>
+          <p className="text-gray-400 text-xs">Try adjusting your search or category filter</p>
+        </div>
       </div>
     );
   }
